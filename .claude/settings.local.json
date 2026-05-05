@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm start *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(git restore *)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(git ls-tree *)",
+      "Read(//tmp/**)"
+    ]
+  }
+}
