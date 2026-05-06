@@ -7,7 +7,15 @@
       "Bash(git checkout *)",
       "Bash(git merge *)",
       "Bash(git ls-tree *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(python3 /Users/aubilla/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/.claude/skills/ui-ux-pro-max/scripts/search.py \"B2B tech consultancy cybersecurity software development dark terminal\" --design-system -p \"WeAreSolutions\" -f markdown)",
+      "Bash(python3 /Users/aubilla/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/.claude/skills/ui-ux-pro-max/scripts/search.py \"icons cybersecurity tech professional\" --domain style -n 3)",
+      "Bash(python3 /Users/aubilla/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/.claude/skills/ui-ux-pro-max/scripts/search.py \"landing hero CTA social proof\" --domain landing -n 3)",
+      "Bash(npm install *)",
+      "Bash(npm list *)",
+      "Bash(npx tsc *)",
+      "Bash(node *)",
+      "Bash(npm run *)"
     ]
   }
 }

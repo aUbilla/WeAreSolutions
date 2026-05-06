@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# API keys — subir manualmente a HostGator con la key real
+/public/api/contact.php
