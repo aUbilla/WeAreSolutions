@@ -304,6 +304,23 @@ const VARS: Record<string, Omit<VarConfig, 'variation'>> = {
     glowStrong: '0 0 0 1px rgba(212,255,58,0.3)',
     scanline: false,
   },
+  light: {
+    bg: '#f0f4f8',
+    bgSoft: '#e4ecf4',
+    panel: '#dae4f0',
+    border: '#c8d8e8',
+    borderStrong: '#a8c0d8',
+    text: '#0f172a',
+    textSoft: '#334155',
+    textMuted: '#64748b',
+    accent: '#2563eb',
+    accentDim: '#1d4ed8',
+    warn: '#d97706',
+    danger: '#dc2626',
+    glow: '0 0 20px rgba(37,99,235,0.08)',
+    glowStrong: '0 0 20px rgba(37,99,235,0.2)',
+    scanline: false,
+  },
 };
 
 // ── Mobile context ────────────────────────────────────────────────
@@ -1442,7 +1459,7 @@ function Stats({ v }: { v: VarConfig }) {
   const isMobile = React.useContext(MobileCtx);
   const cols = isMobile ? 2 : 3;
   return (
-    <section style={{ padding: isMobile ? '60px 16px' : '100px 32px', borderBottom: `1px solid ${v.border}` }}>
+    <section style={{ padding: isMobile ? '60px 16px' : '100px 32px', borderBottom: `1px solid ${v.border}`, background: v.bg }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div ref={statsRef} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: 0, border: `1px solid ${v.border}` }}>
           {STATS.map((s, i) => {
@@ -1561,6 +1578,130 @@ function Equipo({ v }: { v: VarConfig }) {
               </div>
             );
           })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── Partners ──────────────────────────────────────────────────────
+
+function Partners({ v }: { v: VarConfig }) {
+  const [ref, seen] = useReveal();
+  const isMobile = React.useContext(MobileCtx);
+
+  return (
+    <section style={{ padding: isMobile ? '60px 16px' : '100px 32px', borderBottom: `1px solid ${v.border}`, background: v.bg }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <SectionHeader
+          v={v}
+          kicker="// PARTNERS · TECNOLOGÍA"
+          title="Partners oficiales"
+          subtitle="Acceso directo a fabricantes líderes de la industria. Soporte de nivel 1, certificaciones activas y precios exclusivos para nuestros clientes."
+        />
+        <div
+          ref={ref}
+          style={{
+            marginTop: isMobile ? 40 : 60,
+            border: `1px solid ${v.border}`,
+            opacity: seen ? 1 : 0,
+            transform: seen ? 'translateY(0)' : 'translateY(24px)',
+            transition: 'opacity .6s, transform .6s',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 2fr',
+              minHeight: 220,
+            }}
+          >
+            <div
+              style={{
+                background: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '40px 48px',
+                borderRight: isMobile ? 'none' : `1px solid ${v.border}`,
+                borderBottom: isMobile ? `1px solid ${v.border}` : 'none',
+              }}
+            >
+              <img
+                src="/img.png"
+                alt="WatchGuard Technologies"
+                style={{ maxWidth: 200, maxHeight: 72, objectFit: 'contain', display: 'block' }}
+              />
+            </div>
+            <div
+              style={{
+                background: v.bg,
+                padding: isMobile ? '28px 24px' : '40px 48px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: 16,
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                <span
+                  style={{
+                    fontFamily: "'IBM Plex Mono', monospace",
+                    fontSize: 11,
+                    color: v.accent,
+                    letterSpacing: '0.15em',
+                    border: `1px solid ${v.accent}`,
+                    padding: '3px 10px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  ● PARTNER OFICIAL
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'IBM Plex Mono', monospace",
+                    fontSize: 11,
+                    color: v.textMuted,
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  [CIBERSEGURIDAD · REDES]
+                </span>
+              </div>
+              <h3
+                style={{
+                  fontFamily: "'IBM Plex Mono', monospace",
+                  fontSize: isMobile ? 20 : 28,
+                  fontWeight: 500,
+                  color: v.text,
+                  margin: 0,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                WatchGuard Technologies
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'IBM Plex Mono', monospace",
+                  fontSize: isMobile ? 13 : 14,
+                  color: v.textSoft,
+                  lineHeight: 1.7,
+                  margin: 0,
+                  maxWidth: 560,
+                }}
+              >
+                Como partners oficiales de WatchGuard, implementamos y gestionamos sus soluciones de
+                seguridad perimetral: firewalls Firebox, Wi-Fi seguro, protección de endpoints
+                y detección de amenazas avanzadas. Acceso a soporte técnico de primer nivel
+                y precios exclusivos para proyectos en Chile y LATAM.
+              </p>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 4 }}>
+                {['Firebox', 'WatchGuard Wi-Fi', 'Endpoint Security', 'AuthPoint MFA', 'DNSWatchGO'].map((tag) => (
+                  <ChipTag key={tag} v={v}>{tag}</ChipTag>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1813,7 +1954,8 @@ function Footer({ v }: { v: VarConfig }) {
 // ── Landing ───────────────────────────────────────────────────────
 
 export default function Landing({ variation = 'mono' }: { variation?: string }) {
-  const v: VarConfig = { ...VARS[variation], variation };
+  const v: VarConfig = { ...VARS[variation] ?? VARS.mono, variation };
+  const vLight: VarConfig = { ...VARS.light, variation: 'light' };
   const isMobile = useIsMobile();
   return (
     <MobileCtx.Provider value={isMobile}>
@@ -1821,10 +1963,11 @@ export default function Landing({ variation = 'mono' }: { variation?: string }) 
         <Nav v={v} />
         <Hero v={v} />
         <Servicios v={v} />
-        <Stack v={v} />
+        <Stack v={vLight} />
         <Clientes v={v} />
-        <Stats v={v} />
+        <Stats v={vLight} />
         <Equipo v={v} />
+        <Partners v={vLight} />
         <Contacto v={v} />
         <Footer v={v} />
       </div>
