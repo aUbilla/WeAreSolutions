@@ -190,12 +190,15 @@ export default function Brochure() {
           alignItems: 'flex-end',
         }}>
           <div>
+            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
             <div style={{ fontSize: 10, color: C.textMuted, letterSpacing: '0.22em', marginBottom: 8 }}>
               // COMPANY PROFILE · 2026
             </div>
-            <div style={{ fontSize: 30, fontWeight: 600, color: C.text, letterSpacing: '-0.02em', lineHeight: 1 }}>
-              we_are_solutions
-            </div>
+            <img
+              src="/images/brand.png"
+              alt="We Are Solutions"
+              style={{ height: 80, objectFit: 'contain', display: 'block' }}
+            />
             <div style={{ fontSize: 12, color: C.textSoft, marginTop: 6, letterSpacing: '0.02em' }}>
               Ciberseguridad · Desarrollo · Cloud · Consultoría TI
             </div>

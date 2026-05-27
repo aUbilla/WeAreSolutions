@@ -26,7 +26,14 @@
       "Read(//private/etc/**)",
       "Bash(python3 -c \"import socket; print\\(socket.getservbyname\\('cgms'\\)\\)\")",
       "Bash(lsof -p 45688 -iTCP -sTCP:LISTEN -n)",
-      "Bash(awk '{print $9}')"
+      "Bash(awk '{print $9}')",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npm ls *)",
+      "Bash(lsof -ti:3000)",
+      "Bash(PORT=3001 npm start)",
+      "Bash(curl -s http://localhost:3001)",
+      "Bash(PORT=3004 npm start)",
+      "Bash(curl -s http://localhost:3004)"
     ]
   }
 }
