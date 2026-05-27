@@ -1597,7 +1597,7 @@ function Partners({ v }: { v: VarConfig }) {
           v={v}
           kicker="// PARTNERS · TECNOLOGÍA"
           title="Partners oficiales"
-          subtitle="Acceso directo a fabricantes líderes de la industria. Soporte de nivel 1, certificaciones activas y precios exclusivos para nuestros clientes."
+          subtitle="Acceso directo a fabricantes líderes de la industria. Soporte de primer nivel, certificaciones activas y precios exclusivos para nuestros clientes."
         />
         <div
           ref={ref}
@@ -1691,7 +1691,7 @@ function Partners({ v }: { v: VarConfig }) {
                 }}
               >
                 Como partners oficiales de WatchGuard, implementamos y gestionamos sus soluciones de
-                seguridad perimetral: firewalls Firebox, Wi-Fi seguro, protección de endpoints
+                seguridad perimetral: firewalls Firebox, protección de endpoints
                 y detección de amenazas avanzadas. Acceso a soporte técnico de primer nivel
                 y precios exclusivos para proyectos en Chile y LATAM.
               </p>
@@ -1962,12 +1962,12 @@ export default function Landing({ variation = 'mono' }: { variation?: string }) 
       <div style={{ background: v.bg, color: v.text, fontFamily: "'IBM Plex Mono', monospace", minHeight: '100%', position: 'relative' }}>
         <Nav v={v} />
         <Hero v={v} />
+        <Partners v={vLight} />
         <Servicios v={v} />
         <Stack v={vLight} />
         <Clientes v={v} />
         <Stats v={vLight} />
         <Equipo v={v} />
-        <Partners v={vLight} />
         <Contacto v={v} />
         <Footer v={v} />
       </div>
