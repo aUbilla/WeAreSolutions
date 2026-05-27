@@ -180,8 +180,8 @@ const HERO_SLIDES: HeroSlide[] = [
   {
     badge: '[ redes · infraestructura · conectividad ]',
     line1: 'Diseñamos redes',
-    line2: 'que resisten',
-    line3: 'cualquier carga.',
+    line2: 'que resisten.',
+    line3: '',
     desc: 'Arquitectura de redes empresariales, segmentación, VPNs, SD-WAN y monitoreo 24/7. Tu infraestructura de conectividad, siempre operativa.',
   },
   {
@@ -641,15 +641,15 @@ function Nav({ v }: { v: VarConfig }) {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span
+          <img
+            src="/images/favicon.png"
+            alt="We Are Solutions"
             style={{
-              width: 10,
-              height: 10,
-              background: v.accent,
-              borderRadius: '50%',
-              boxShadow: v.variation === 'phosphor' ? `0 0 10px ${v.accent}` : 'none',
-              animation: 'wa-pulse 2s ease-in-out infinite',
+              width: isMobile ? 22 : 26,
+              height: isMobile ? 22 : 26,
+              objectFit: 'contain',
               flexShrink: 0,
+              animation: 'wa-pulse 2s ease-in-out infinite',
             }}
           />
           <span style={{ color: v.text, fontWeight: 600, letterSpacing: '0.02em', fontSize: isMobile ? 12 : 13 }}>
@@ -1005,12 +1005,12 @@ function Hero({ v }: { v: VarConfig }) {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 40 : 80, alignItems: 'start' }}>
           <div>
           {/* Animated slide content */}
+            <div style={{ minHeight: isMobile ? 340 : 460 }}>
             <div
               style={{
                 opacity: entering ? 1 : 0,
                 transform: entering ? 'translateY(0)' : 'translateY(14px)',
                 transition: 'opacity 0.32s ease, transform 0.32s ease',
-                minHeight: isMobile ? 200 : 260,
               }}
             >
               <div
@@ -1060,6 +1060,7 @@ function Hero({ v }: { v: VarConfig }) {
               >
                 {slide.desc}
               </p>
+            </div>
             </div>
 
             {/* Progress bar */}
@@ -1143,7 +1144,22 @@ function Hero({ v }: { v: VarConfig }) {
               </span>
             </div>
           </div>
-          {!isMobile && <AutoTerminal v={v} />}
+          {!isMobile && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <img
+                  src="/images/brand.png"
+                  alt="We Are Solutions"
+                  style={{
+                    height: 160,
+                    objectFit: 'contain',
+                    display: 'block',
+                  }}
+                />
+              </div>
+              <AutoTerminal v={v} />
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -1918,8 +1934,15 @@ function Footer({ v }: { v: VarConfig }) {
         }}
       >
         <div>
-          <div style={{ fontSize: isMobile ? 18 : 24, color: v.text, fontWeight: 500, marginBottom: 8, letterSpacing: '-0.01em' }}>
-            we_are_solutions
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+            <img
+              src="/images/favicon.png"
+              alt="We Are Solutions"
+              style={{ width: isMobile ? 22 : 28, height: isMobile ? 22 : 28, objectFit: 'contain', flexShrink: 0 }}
+            />
+            <span style={{ fontSize: isMobile ? 18 : 24, color: v.text, fontWeight: 500, letterSpacing: '-0.01em' }}>
+              we_are_solutions
+            </span>
           </div>
           <div>{'// © 2026 · all systems operational'}</div>
         </div>
