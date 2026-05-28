@@ -33,7 +33,9 @@
       "Bash(PORT=3001 npm start)",
       "Bash(curl -s http://localhost:3001)",
       "Bash(PORT=3004 npm start)",
-      "Bash(curl -s http://localhost:3004)"
+      "Bash(curl -s http://localhost:3004)",
+      "Bash(python3 *)",
+      "Skill(claude-powerline:powerline)"
     ]
   }
 }
